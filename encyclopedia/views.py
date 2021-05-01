@@ -12,7 +12,7 @@ def index(request):
 
 def entry(request,title):
     if title not in util.list_entries():
-        return HttpResponse("Error")
+        return render(request, "encyclopedia/error.html")
     else:
         return render(request, "encyclopedia/entry.html", {
             "title": title,
