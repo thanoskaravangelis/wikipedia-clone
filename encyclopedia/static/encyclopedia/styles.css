@@ -1,3 +1,8 @@
+html{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
 body {
     margin: 0;
     background-color: white;
@@ -35,4 +40,17 @@ textarea {
 
 .sidebar h2 {
     margin-top: 5px;
+}
+
+a{
+    color:black;
+}
+
+#home-link{
+    color:black;
+    text-decoration: none;
+}
+
+#home-link:hover{
+    text-decoration: underline;
 }
