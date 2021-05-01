@@ -12,11 +12,11 @@
         <div class="row">
             <div class="sidebar col-lg-2 col-md-3" style="max-width: 300px;">
                 <h2>Wiki</h2>
-                <form>
+                <form action="{% url 'encyclopedia:searching' %}">
                     <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
                 </form>
                 <div>
-                    <a href="{% url 'index' %}" style="color: black;">Home</a>
+                    <a href="{% url 'encyclopedia:index' %}" style="color: black;">Home</a>
                 </div>
                 <div>
                     Create New Page
