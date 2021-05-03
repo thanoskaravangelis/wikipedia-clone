@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import markdown2
+import random
 
 from . import util
 
@@ -47,6 +48,15 @@ def searching(request):
             return render(request, "encyclopedia/results_error.html", {
                 "term":search_str
             })
+
+def randompage(request):
+    entries = util.list_entries()
+    title = random.choice(entries)
+    return render(request, "encyclopedia/entry.html", {
+            "title": title,
+            "content": markdown2.markdown(util.get_entry(title))
+    })
+
 
 
         
