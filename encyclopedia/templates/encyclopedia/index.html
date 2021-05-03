@@ -6,10 +6,12 @@
 
 {% block body %}
     <h1>All Pages</h1>
-
+    <div style="border-bottom: 1px solid grey; margin-bottom: 20px;"></div>
     <ul>
         {% for entry in entries %}
-            <li>{{ entry }}</li>
+            <li id="li-link-to-entry">
+                <a id="link-to-entry" href="wiki/{{entry}}">{{ entry }}</a>
+            </li>
         {% endfor %}
     </ul>
 

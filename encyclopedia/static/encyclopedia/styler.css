@@ -46,3 +46,37 @@ textarea {
 a{
     color:black;
 }
+
+#li-link-to-entry{
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+
+#link-to-entry:hover{
+    color:rgb(35, 60, 128);
+}
+
+.center-content {
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+div>div>div{
+    padding :10px;
+}
+
+div>div>form{
+    margin:10px;
+}
+
+.side-bar-content:hover{
+    background-color: rgb(199, 199, 199);
+}
+
+
+/*no results found*/
+#no-results-title{
+    margin-top:200px;
+}

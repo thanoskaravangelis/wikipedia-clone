@@ -6,29 +6,8 @@
     <head>
         <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+        <link href="{% static 'encyclopedia/styler.css' %}" rel="stylesheet">
     </head>
-    <style>
-        .center-content {
-            justify-items: center;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        
-        div>div>div{
-            padding :10px;
-        }
-
-        div>div>form{
-            margin:10px;
-        }
-
-        .side-bar-content:hover{
-            cursor:pointer;
-            background-color: rgb(199, 199, 199);
-        }
-    </style>
     <body>
         <div class="row">
             <div class="sidebar col-lg-2 col-md-3" style="max-width: 300px;">
@@ -43,7 +22,7 @@
                     Create New Page
                 </div>
                 <div class="side-bar-content">
-                    Random Page
+                    <a href="{% url 'encyclopedia:random' %}" style="color: black;">Random Page</a>
                 </div>
                 {% block nav %}
                 {% endblock %}
