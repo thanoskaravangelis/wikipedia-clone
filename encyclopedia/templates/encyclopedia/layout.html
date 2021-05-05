@@ -6,7 +6,7 @@
     <head>
         <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="{% static 'encyclopedia/styler.css' %}" rel="stylesheet">
+        <link href="{% static 'encyclopedia/style.css' %}" rel="stylesheet">
     </head>
     <body>
         <div class="row">
@@ -19,7 +19,7 @@
                     <a href="{% url 'encyclopedia:index' %}" style="color: black;">Home</a>
                 </div>
                 <div class="side-bar-content">
-                    Create New Page
+                    <a href="{% url 'encyclopedia:newentry' %}" style="color: black;">Create New Page</a>
                 </div>
                 <div class="side-bar-content">
                     <a href="{% url 'encyclopedia:randompage' %}" style="color: black;">Random Page</a>

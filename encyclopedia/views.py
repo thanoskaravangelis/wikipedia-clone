@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django import forms
 import markdown2
 import random
 
@@ -57,6 +58,15 @@ def randompage(request):
             "content": markdown2.markdown(util.get_entry(title))
     })
 
+class EntryForm(forms.Form):
+    new_entry_title = forms.CharField(label='Title',widget=forms.TextInput(attrs={'placeholder': 'Enter the new entry\'s title...'}), max_length = 100 )
+    new_entry_text = forms.CharField(label='Details',widget=forms.Textarea(attrs={"rows":20,"cols":40,'placeholder': 'Enter the new entry\'s details in Markdown...'}))
+
+def newentry(request):
+    form = EntryForm()
+    return render(request , "encyclopedia/newpage.html", {
+        "form" : form
+    })
 
 
         
