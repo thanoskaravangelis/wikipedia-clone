@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django import forms
 import markdown2
@@ -67,6 +67,16 @@ def newentry(request):
     return render(request , "encyclopedia/newpage.html", {
         "form" : form
     })
+
+def save_new(request):
+    title = request.POST['new_entry_title']
+    text = request.POST['new_entry_text']
+    entries = util.list_entries()
+    if title in entries:
+        return render(request, "encyclopedia/error.html")
+    else:
+        util.save_entry(title,text)
+        return redirect(f'/wiki/{title}')
 
 
         
