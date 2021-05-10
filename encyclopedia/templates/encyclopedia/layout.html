@@ -6,12 +6,19 @@
     <head>
         <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="{% static 'encyclopedia/style.css' %}" rel="stylesheet">
+        <link href="{% static 'encyclopedia/styling.css' %}" rel="stylesheet">
     </head>
+    <script>
+        function go_home() {
+            location.href = "/";
+        }
+    </script>
     <body>
         <div class="row">
             <div class="sidebar col-lg-2 col-md-3" style="max-width: 300px;">
-                <div class="center-content"><h2 id="title-layout">Wiki</h2></div>
+                <div class="center-content wiki-title">
+                    <div id="wiki-logo-image" onclick="go_home()"></div>
+                    <h2 id="title-layout" onclick="go_home()">Wiki</h2></div>
                 <form action="{% url 'encyclopedia:searching' %}">
                     <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
                 </form>

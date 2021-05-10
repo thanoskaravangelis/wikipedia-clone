@@ -75,10 +75,33 @@ div>div>form{
     background-color: rgb(199, 199, 199);
 }
 
+.wiki-title{
+    display: flex;
+    flex-direction: row;
+}
+
+#wiki-logo-image:hover{
+    cursor: pointer;
+}
+
+#title-layout:hover{
+    cursor: pointer;
+}
+
+#wiki-logo-image{
+    background-image: url('wikipedia-9-675154.png');
+    background-repeat: no-repeat;
+    background-size: 50px;
+    background-position: center;
+    height:50px;
+    width: 50px;
+    margin-right:20px;
+}
 
 /*no results found*/
 #no-results-title{
-    margin-top:200px;
+    color: red;
+    margin-top: 20vw;
 }
 
 /*new entry*/
@@ -127,4 +150,27 @@ label{
 
 #button-entry:hover{
     background-color: rgb(36, 85, 219);
+}
+
+/*error page*/
+#error-page{
+    margin-top:20vw;
+}
+
+/* entry page */
+#content-entry{
+    display: flex;
+    flex-direction: column;
+}
+.edit-entry-link{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 10vw;
+}
+
+#edit-icon{
+    background-image: url('edit-icon.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
 }
