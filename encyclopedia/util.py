@@ -24,6 +24,13 @@ def save_entry(title, content):
         default_storage.delete(filename)
     default_storage.save(filename, ContentFile(content))
 
+def delete_entry(title):
+    """
+    Deletes an entry.
+    """
+    filename = f"entries/{title}.md"
+    default_storage.delete(filename)
+
 
 def get_entry(title):
     """
