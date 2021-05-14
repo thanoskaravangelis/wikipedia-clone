@@ -9,7 +9,7 @@
 <h1 id="new-entry-header">Edit page</h1>
 <div style="border-bottom: 1px solid grey; margin-bottom: 20px;"></div>
 <div class="form-container">
-    <form method="post" action="{% url 'encyclopedia:save_entry' %}">
+    <form method="post" action="{% url 'encyclopedia:save_edited' %}">
         <div>
             {% csrf_token %}
             {{ form }}
