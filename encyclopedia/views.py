@@ -59,8 +59,8 @@ def randompage(request):
     })
 
 class EntryForm(forms.Form):
-    new_entry_title = forms.CharField(label='Title',widget=forms.TextInput(attrs={'placeholder': 'Enter the new entry\'s title...'}), max_length = 100 )
-    new_entry_text = forms.CharField(label='Details',widget=forms.Textarea(attrs={"rows":20,"cols":40,'placeholder': 'Enter the new entry\'s details in Markdown...'}))
+    new_entry_title = forms.CharField(label='Title',widget=forms.TextInput(attrs={'placeholder': 'Enter the new entry\'s title...'}), max_length = 100 , initial='')
+    new_entry_text = forms.CharField(label='Details',widget=forms.Textarea(attrs={"rows":20,"cols":40,'placeholder': 'Enter the new entry\'s details in Markdown...'}), initial='')
 
 def newentry(request):
     form = EntryForm()
@@ -77,6 +77,36 @@ def save_new(request):
     else:
         util.save_entry(title,text)
         return redirect(f'/wiki/{title}')
+
+class EditEntryForm(forms.Form):
+    new_entry_title = forms.CharField(label='Title',widget=forms.TextInput(attrs={'placeholder': 'Enter the new entry\'s title...'}), max_length = 100 , initial='')
+    new_entry_text = forms.CharField(label='Details',widget=forms.Textarea(attrs={"rows":20,"cols":40,'placeholder': 'Enter the new entry\'s details in Markdown...'}), initial='')
+    old_title = forms.CharField(label='',widget = forms.HiddenInput(), required = False,initial='')
+
+def editentry(request,title):
+    content = util.get_entry(title)
+    form = EditEntryForm(initial={'new_entry_title':title,
+                              'new_entry_text': content,
+                              'old_title':title})
+    return render(request, "encyclopedia/editpage.html",{
+        'title':title,
+        'form':form,
+        'old_title':title
+    })
+
+def save_edited(request):
+    title = request.POST['new_entry_title']
+    text = request.POST['new_entry_text']
+    old_title = request.POST['old_title']
+    if old_title == title :
+        util.save_entry(title,text)
+        return redirect(f'/wiki/{title}')
+    else :
+        util.delete_entry(old_title)
+        util.save_entry(title,text)
+        return redirect(f'/wiki/{title}')
+
+
 
 
         
