@@ -7,11 +7,13 @@
     <h1>Search Results </h1>
     <p>for search term"{{term}}"</p>
     <div style="border-bottom: 1px solid grey; margin-bottom: 20px;"></div>
-    {% for item in results %}
-        <div>
-            <li>
-                <a href="wiki/{{item}}">{{item}}</a>
-            </li>
-        </div>
-    {% endfor %}
+    <ul class="flex-list">
+        {% for entry in results %}
+            <div class="list-item-box center-content" onclick="location.href = 'wiki/{{entry}}'" >
+                <li id="li-link-to-entry">
+                    <a id="link-to-entry" href="wiki/{{entry}}">{{ entry }}</a>
+                </li>
+            </div>
+        {% endfor %}
+    </ul>
 {% endblock %}

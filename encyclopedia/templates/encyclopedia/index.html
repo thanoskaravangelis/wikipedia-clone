@@ -5,13 +5,16 @@
 {% endblock %}
 
 {% block body %}
+
     <h1>All Pages</h1>
     <div style="border-bottom: 1px solid grey; margin-bottom: 20px;"></div>
-    <ul>
+    <ul class="flex-list">
         {% for entry in entries %}
-            <li id="li-link-to-entry">
-                <a id="link-to-entry" href="wiki/{{entry}}">{{ entry }}</a>
-            </li>
+            <div class="list-item-box center-content" onclick="location.href = 'wiki/{{entry}}'" >
+                <li id="li-link-to-entry">
+                    <a id="link-to-entry" href="wiki/{{entry}}">{{ entry }}</a>
+                </li>
+            </div>
         {% endfor %}
     </ul>
 
